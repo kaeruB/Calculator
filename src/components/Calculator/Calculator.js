@@ -13,13 +13,11 @@ export class Calculator extends React.Component {
             numberRight: null
         };
 
-        // TODO
         this.calculate = this.calculate.bind(this);
         this.handleKeyPressed = this.handleKeyPressed.bind(this);
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.updateInputState = this.updateInputState.bind(this);
-        this.renderDisplay = this.renderDisplay.bind(this);
         this.renderInputField = this.renderInputField.bind(this);
         this.activateKeyPressedAction = this.activateKeyPressedAction.bind(this);
         this.resetState = this.resetState.bind(this);
