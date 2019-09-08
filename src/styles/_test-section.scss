@@ -1,0 +1,12 @@
+.test-section {
+  justify-content: space-evenly;
+  height: 100%;
+
+  h3 {
+    font-size: $font-size-medium-text;
+  }
+
+  span {
+    font-size: $font-size-small-text;
+  }
+}

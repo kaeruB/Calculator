@@ -1,0 +1,33 @@
+.page {
+  &__header {
+    font-size: $font-size-primary-heading;
+    height: 40rem;
+    margin-bottom: 10rem;
+
+    span {
+      padding: 4rem 0 4rem;
+    }
+  }
+
+   &__calculator-section {
+     height: 120rem;
+     padding: 3rem;
+   }
+
+   &__rotate-section {
+     height: 100rem;
+     padding: 3rem;
+     margin-bottom: 20rem;
+   }
+
+   &__test-section {
+     height: 90rem;
+     padding: 3rem;
+     margin-bottom: 10rem;
+   }
+
+  &__footer {
+    font-size: $font-size-primary-heading;
+    color: $color-tertiary;
+  }
+}

@@ -1,0 +1,83 @@
+.rotation {
+  &__container  {
+    height: 100%;
+  }
+
+  &__inputs {
+    height: 40%;
+    justify-content: space-around;
+
+    &--point {
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+
+      span {
+        font-size: $font-size-secondary-heading;
+        color: $color-strong;
+      }
+
+      input {
+        width: 50%;
+      }
+    }
+
+    input {
+      height: 5rem;
+      text-align: center;
+      box-shadow: -1rem 0 3rem $color-grey;
+      border: 1px solid $color-strong;
+      border-radius: 1rem;
+      font-family: inherit;
+      font-size: $font-size-medium-text;
+      outline: unset;
+      &:focus {
+        box-shadow: 0 0 3pt 2pt $color-tertiary;
+      }
+    }
+  }
+
+  &__run-button {
+    width: 49%;
+    height: 20%;
+
+    button {
+      padding: 1rem;
+      border-radius: 1rem;
+      background-color: $color-strong;
+      width: 100%;
+      box-shadow: -1rem 0 3rem $color-grey;
+    }
+  }
+
+  &__results {
+    height: 40%;
+    justify-content: center;
+    color: $color-grey;
+
+    span {
+      font-size: $font-size-secondary-heading;
+    }
+
+    &--point {
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+
+      span {
+        font-size: $font-size-secondary-heading;
+        color: $color-black;
+
+        &:first-child, &:nth-child(3), &:last-child {
+          color: $color-grey;
+        }
+      }
+
+      input {
+        width: 50%;
+      }
+    }
+  }
+}
