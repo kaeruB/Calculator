@@ -15,7 +15,7 @@
 
   &__inputs {
     height: 28%;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     &--point {
       width: 50%;
@@ -33,7 +33,7 @@
     }
 
     input {
-      height: 5rem;
+      max-height: 5rem;
       text-align: center;
       box-shadow: -1rem 0 3rem $color-grey;
       border: 1px solid $color-strong;
@@ -63,6 +63,7 @@
     height: 18%;
 
     button {
+      max-height: 5rem;
       padding: 1rem;
       border-radius: 1rem;
       background-color: $color-strong;
