@@ -3,6 +3,9 @@ $font-size-secondary-heading: 4.5rem;
 $font-size-medium-text: 3.5rem;
 $font-size-small-text: 2.5rem;
 
+$font-size-phone-heading: 3rem;
+$font-size-phone-text: 2rem;
+
 $color-white: white;
 $color-primary: #FFF4E0;
 $color-secondary: #FFC679;
@@ -11,3 +14,9 @@ $color-strong: #F99292;
 $color-grey: #BCB5B5;
 $color-black: #000000;
 $color-shadow: #000000d6;
+
+$phone-small-width: 27em; // ~425
+$phone-width: 35em; //710px / 16 px
+$tab-medium-width: 56.25em; //900px
+$tab-large-width: 75em; // 1200px
+$desktop-large-width: 112.5em; //1800px

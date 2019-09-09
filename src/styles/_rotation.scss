@@ -3,8 +3,18 @@
     height: 100%;
   }
 
+  &__img {
+    height: 35%;
+    width: 50rem;
+    background-image: linear-gradient(to bottom, #fff4e06b, #fff4e06b), url(../images/rotation-img.JPG);
+    box-shadow: 3px 0 8px 8px $color-primary inset;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   &__inputs {
-    height: 40%;
+    height: 28%;
     justify-content: space-around;
 
     &--point {
@@ -31,6 +41,17 @@
       font-family: inherit;
       font-size: $font-size-medium-text;
       outline: unset;
+
+      @media only screen and (max-width: $phone-small-width) {
+        font-size: $font-size-phone-text;
+        max-width: 15rem;
+      }
+
+      @media only screen and (max-width: $phone-width)  and (min-width: $phone-small-width){
+        font-size: $font-size-small-text;
+        max-width: 15rem;
+      }
+
       &:focus {
         box-shadow: 0 0 3pt 2pt $color-tertiary;
       }
@@ -39,7 +60,7 @@
 
   &__run-button {
     width: 49%;
-    height: 20%;
+    height: 18%;
 
     button {
       padding: 1rem;
@@ -51,12 +72,20 @@
   }
 
   &__results {
-    height: 40%;
+    height: 19%;
     justify-content: center;
     color: $color-grey;
 
     span {
       font-size: $font-size-secondary-heading;
+
+      @media only screen and (max-width: $phone-small-width) {
+        font-size: $font-size-small-text;
+      }
+
+      @media only screen and (max-width: $phone-width)  and (min-width: $phone-small-width) {
+        font-size: $font-size-medium-text;
+      }
     }
 
     &--point {
@@ -70,6 +99,14 @@
         font-size: $font-size-secondary-heading;
         color: $color-black;
 
+        @media only screen and (max-width: $phone-small-width) {
+          font-size: $font-size-small-text;
+        }
+
+        @media only screen and (max-width: $phone-width)  and (min-width: $phone-small-width) {
+          font-size: $font-size-phone-heading;
+        }
+
         &:first-child, &:nth-child(3), &:last-child {
           color: $color-grey;
         }
@@ -79,5 +116,9 @@
         width: 50%;
       }
     }
+  }
+
+  &__button {
+    max-height: 6rem;
   }
 }

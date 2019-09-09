@@ -1,8 +1,16 @@
 .page {
   &__header {
     font-size: $font-size-primary-heading;
-    height: 40rem;
-    margin-bottom: 10rem;
+    height: 100vh;
+    justify-content: center;
+
+    @media only screen and (max-width: $phone-width) {
+      font-size: $font-size-small-text;
+    }
+
+    @media only screen and  (min-width: $phone-width) and (max-width: $tab-medium-width){
+      font-size: $font-size-phone-heading;
+    }
 
     span {
       padding: 4rem 0 4rem;
@@ -10,18 +18,18 @@
   }
 
    &__calculator-section {
-     height: 120rem;
+     height: 100vh;
      padding: 3rem;
    }
 
    &__rotate-section {
-     height: 100rem;
+     height: 90vh;
      padding: 3rem;
      margin-bottom: 20rem;
    }
 
    &__test-section {
-     height: 90rem;
+     height: 80vh;
      padding: 3rem;
      margin-bottom: 10rem;
    }
@@ -29,5 +37,13 @@
   &__footer {
     font-size: $font-size-primary-heading;
     color: $color-tertiary;
+
+    @media only screen and (max-width: $phone-width) {
+      font-size: $font-size-small-text;
+    }
+
+    @media only screen and  (min-width: $phone-width) and (max-width: $tab-medium-width){
+      font-size: $font-size-phone-heading;
+    }
   }
 }

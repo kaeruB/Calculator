@@ -14,8 +14,12 @@ body {
   box-sizing: border-box;
   padding: 10rem;
   letter-spacing: 1.1px;
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Kosugi Maru', sans-serif;
   background-color: $color-primary;
+
+  @media only screen and (max-width: $phone-width) {
+    padding: 0;
+  }
 }
 
 header {

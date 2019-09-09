@@ -24,10 +24,8 @@ function Page() {
                 <h2 className='secondary-heading'>課題3</h2>
                 <span className='tertiary-heading'>電卓の確認する方法</span>
                 <div className='test-section flex-column-center'>
-                    <h3>方法１</h3>
+                    <h3>方法</h3>
                     <span>サーバにアップロードして、URLを知って、インターネットに繋がっている端末で簡単に確認ができます。無料にサイトをアップロードするサービスがあります。</span>
-                    <h3>方法2</h3>
-                    <span>早くサイトのレイアウトや全体的な恰好を見たいなら、Google ChromeのDevToolsは十分です。あそこに携帯電話やタブレットなど、色々な画面に設定することが可能でございます。それで、Media Queryも簡単に入られます。</span>
                 </div>
             </div>
             <div className='page__footer'>ありがとうございました</div>

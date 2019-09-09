@@ -13,6 +13,14 @@
   color: $color-white;
   background: $color-secondary;
 
+  @media only screen and (max-width: $phone-small-width) {
+    font-size: $font-size-phone-text;
+  }
+
+  @media only screen and (max-width: $phone-width)  and (min-width: $phone-small-width) {
+    font-size: $font-size-small-text;
+  }
+
   &:not(.right-border-adjacent) {
     border-right: .05px solid $color-white;
   }

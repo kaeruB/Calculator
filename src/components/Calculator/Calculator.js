@@ -12,61 +12,49 @@ export class Calculator extends React.Component {
             job: null,
             numberRight: null
         };
-
-        this.calculate = this.calculate.bind(this);
-        this.handleKeyPressed = this.handleKeyPressed.bind(this);
-        this.handleButtonClick = this.handleButtonClick.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.updateInputState = this.updateInputState.bind(this);
-        this.renderInputField = this.renderInputField.bind(this);
-        this.activateKeyPressedAction = this.activateKeyPressedAction.bind(this);
-        this.resetState = this.resetState.bind(this);
-        this.setCalculatorState = this.setCalculatorState.bind(this);
-        this.setInputOutputFields = this.setInputOutputFields.bind(this);
-        this.hidePlaceholder = this.hidePlaceholder.bind(this);
     };
 
     componentDidMount() {
         this.refs.InputField.value = 0;
     }
 
-    hidePlaceholder() {
+    hidePlaceholder = () => {
         if (this.state.start) {
             this.refs.InputField.value = '';
             this.setState({
                 start: false
             });
         }
-    }
+    };
 
-    setCalculatorState(numLeft, jobAssigned, numRight, start = false) {
+    setCalculatorState = (numLeft, jobAssigned, numRight, start = false) => {
         this.setState({
             numberLeft: numLeft,
             job: jobAssigned,
             numberRight: numRight,
             start: start
         });
-    }
+    };
 
-    setInputOutputFields(input, output) {
+    setInputOutputFields = (input, output) => {
         this.refs.CurrentStateDisplay.textContent = output ;
         this.refs.InputField.value = input;
-    }
+    };
 
-    resetState() {
+    resetState = ()  => {
         this.setCalculatorState(null, null, null, true);
         this.setInputOutputFields(0, '');
-    }
+    };
 
-    calculate(event, nextJobToAssign) {
+    calculate = (event, nextJobToAssign) => {
         if (event) event.preventDefault();
 
         const result = utils.getResult(parseFloat(this.state.numberLeft), this.state.job, parseFloat(this.state.numberRight));
         this.setCalculatorState(result,nextJobToAssign ? nextJobToAssign : null, null);
         this.setInputOutputFields('', result + (nextJobToAssign ? ' ' + String.fromCharCode(nextJobToAssign) : ''));
-    }
+    };
 
-    activateKeyPressedAction(keyCode, event) {
+    activateKeyPressedAction = (keyCode, event)  => {
         if (constants.JOBS_CODES.includes(keyCode)) {
             if (this.state.numberLeft && this.state.numberRight === null) {
                 this.setState({
@@ -105,13 +93,13 @@ export class Calculator extends React.Component {
             this.refs.InputField.value = this.state.numberLeft;
             if (event) event.preventDefault();
         }
-    }
+    };
 
     handleKeyPressed = (event) => {
         this.activateKeyPressedAction(event.which, event)
     };
 
-    handleButtonClick(inputVal, keyCode) {
+    handleButtonClick = (inputVal, keyCode) => {
         this.hidePlaceholder();
 
         if (keyCode === constants.RESET) this.resetState();
@@ -125,14 +113,14 @@ export class Calculator extends React.Component {
                 this.refs.InputField.value = this.refs.InputField.value + inputVal;
         }
         else if (keyCode !== constants.DELETE) this.activateKeyPressedAction(keyCode);
-    }
+    };
 
     handleInputChange = (event) => {
         const value = event.target.value;
         this.updateInputState(value);
     };
 
-    updateInputState(value) {
+    updateInputState = (value) => {
         if (utils.isNumber(value) || value === '') {
             if (this.state.job === null) {
                 this.setState({
@@ -145,7 +133,7 @@ export class Calculator extends React.Component {
                 });
             }
         }
-    }
+    };
 
     renderDisplay() {
         return (
@@ -155,13 +143,13 @@ export class Calculator extends React.Component {
         );
     };
 
-    renderInputField() {
+    renderInputField = () => {
         return (
             <div className='calculator__input'>
                 <input type="text" onChange={this.handleInputChange} onKeyPress={this.handleKeyPressed} onClick={this.hidePlaceholder} ref='InputField'/>
             </div>
         );
-    }
+    };
 
     renderButtons() {
         return (

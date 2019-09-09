@@ -12,12 +12,6 @@ export class RotationCounter extends React.Component {
             y: null,
             theta: null
         };
-
-        this.handleXInputChange = this.handleXInputChange.bind(this);
-        this.handleYInputChange = this.handleYInputChange.bind(this);
-        this.handleThetaInputChange = this.handleThetaInputChange.bind(this);
-        this.handleRun = this.handleRun.bind(this);
-
     }
 
     handleXInputChange = (event) => {
@@ -38,7 +32,7 @@ export class RotationCounter extends React.Component {
         });
     };
 
-    handleRun() {
+    handleRun = () => {
         if (this.state.x && this.state.y && this.state.theta) {
             const pointToRotate = new Point(this.state.x, this.state.y);
             const resultPoint = rotate(pointToRotate, this.state.theta);
@@ -46,11 +40,14 @@ export class RotationCounter extends React.Component {
             this.refs.RotateResultY.textContent = resultPoint.y;
             console.log(resultPoint);
         }
-    }
+    };
 
     render() {
         return (
             <div className='rotation__container flex-column-center'>
+                {/*<div className='rotation__img--container'>*/}
+                    <div className='rotation__img'/>
+                {/*</div>*/}
                 <div className='rotation__inputs flex-column-center'>
                     <div className='rotation__inputs--point'>
                         <span>(</span>
@@ -62,7 +59,7 @@ export class RotationCounter extends React.Component {
                     <input type="text" onChange={this.handleThetaInputChange} onKeyPress={this.handleKeyPressed} ref='ThetaInputField' placeholder='Theta [deg]'/>
                 </div>
                 <div className='rotation__run-button'>
-                    <button className='custom-button' onClick={this.handleRun}>Run</button>
+                    <button className='rotation__button custom-button' onClick={this.handleRun}>Run</button>
                 </div>
                 <div className='rotation__results flex-column-center'>
                     <span>Result:</span>

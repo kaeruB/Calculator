@@ -16,9 +16,3 @@ export function getResult(numberLeft, job, numberRight) {
             return numberLeft * numberRight;
     }
 }
-
-export function riseError(message) {
-    console.log(message);
-}
-
-

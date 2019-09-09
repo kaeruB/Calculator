@@ -1,7 +1,9 @@
 .calculator {
   &__container {
-    width: 55rem;
-    height: 60rem;
+    width:90vw;
+    height: 80vh;
+    max-width: 55rem;
+    max-height: 60rem;
     align-items: stretch;
     justify-content: space-between;
     border-radius: 1rem;
@@ -63,6 +65,16 @@
     padding: 1rem;
     background: $color-secondary;
     transition: .2s;
+
+    @media only screen and (max-width: $phone-width) {
+      flex-direction: column;
+    }
+  }
+
+  &__button {
+    @media only screen and (max-width: $phone-width) {
+      border: .03px solid $color-white;
+    }
   }
 
   &__buttons-column {
@@ -74,6 +86,10 @@
     }
     &:nth-child(2) {
       flex-grow: 1;
+
+      @media only screen and (max-width: $phone-width) {
+        flex-direction: row;
+      }
 
       .calculator__button {
         flex-grow: 1;
@@ -87,6 +103,7 @@
         &:last-child {
           height: 50%;
         }
+
       }
     }
   }
