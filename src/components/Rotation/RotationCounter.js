@@ -1,7 +1,9 @@
 import React from 'react';
 import {rotate} from './RotationCalculations';
 import {Point} from "./Point";
-
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import {ORIGIN_POINT, CHART_CONFIG, addPointToChart} from './HighChartsUtils';
 
 export class RotationCounter extends React.Component {
     constructor(props, context){
@@ -14,15 +16,48 @@ export class RotationCounter extends React.Component {
         };
     }
 
+    updateChart = (x, y, resultX, resultY) => {
+        const chart = this.refs.RotationChart.chart;
+
+        while(chart.series.length > 0)
+            chart.series[0].remove(true);
+        chart.addSeries(ORIGIN_POINT);
+
+        let newConfig = CHART_CONFIG;
+        const reference = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+        const min = -reference - 5;
+        const max = reference + 5;
+
+        newConfig.xAxis.min = min;
+        newConfig.xAxis.max = max;
+        newConfig.yAxis.min = min;
+        newConfig.yAxis.max = max;
+
+        chart.update(newConfig);
+
+        addPointToChart(chart, x, y, 'Start point');
+        addPointToChart(chart, resultX, resultY, 'End point');
+    };
+
+    handleRun = () => {
+        if (this.state.x && this.state.y && this.state.theta) {
+            const pointToRotate = new Point(this.state.x, this.state.y);
+            const resultPoint = rotate(pointToRotate, this.state.theta);
+            this.refs.RotateResultX.textContent = resultPoint.x;
+            this.refs.RotateResultY.textContent = resultPoint.y;
+            this.updateChart(this.state.x, this.state.y, resultPoint.x, resultPoint.y)
+        }
+    };
+
     handleXInputChange = (event) => {
         this.setState({
-            x: event.target.value
+            x: parseFloat(event.target.value)
         });
     };
 
     handleYInputChange = (event) => {
         this.setState({
-            y: event.target.value
+            y: parseFloat(event.target.value)
         });
     };
 
@@ -32,22 +67,14 @@ export class RotationCounter extends React.Component {
         });
     };
 
-    handleRun = () => {
-        if (this.state.x && this.state.y && this.state.theta) {
-            const pointToRotate = new Point(this.state.x, this.state.y);
-            const resultPoint = rotate(pointToRotate, this.state.theta);
-            this.refs.RotateResultX.textContent = resultPoint.x;
-            this.refs.RotateResultY.textContent = resultPoint.y;
-            console.log(resultPoint);
-        }
-    };
-
     render() {
         return (
             <div className='rotation__container flex-column-center'>
-                {/*<div className='rotation__img--container'>*/}
-                    <div className='rotation__img'/>
-                {/*</div>*/}
+                <div className='rotation__chart'>
+                    <HighchartsReact ref='RotationChart'
+                                     highcharts={Highcharts}
+                                     options={CHART_CONFIG}/>
+                </div>
                 <div className='rotation__inputs flex-column-center'>
                     <div className='rotation__inputs--point'>
                         <span>(</span>
