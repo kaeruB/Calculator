@@ -4,6 +4,8 @@ The project includes:
 - calculator,
 - rotate() function that counts (x', y') - a point that is a result of rotating given point (x, y) for Theta degrees around point (0,0). The rotation is counterclockwise.
 
+Link: https://hidden-plateau-06441.herokuapp.com/
+
 ## Technology
 
 React 16.9
