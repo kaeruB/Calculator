@@ -19,17 +19,20 @@
 
    &__calculator-section {
      height: 100vh;
+     min-height: 100rem;
      padding: 3rem;
    }
 
    &__rotate-section {
      height: 90vh;
+     min-height: 80rem;
      padding: 3rem;
      margin-bottom: 20rem;
    }
 
    &__test-section {
      height: 80vh;
+     min-height: 40rem;
      padding: 3rem;
      margin-bottom: 10rem;
    }
